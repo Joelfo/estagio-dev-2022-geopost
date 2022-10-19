@@ -1,0 +1,121 @@
+body{
+    background-color: #483D8B;
+}
+
+.groups-container{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.group-grid-container {
+    width: 15%;
+    display: grid;
+    grid-template-columns: auto;
+    padding: 2px;
+    row-gap: 20px;
+    width: 12%;
+}
+
+#group-container-1{
+    order: 1;
+}
+
+#group-container-2{
+    order: 3;
+}
+
+
+.eight-finals-container {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    order: 2;
+}
+
+.four-finals-container {
+    display:flex;
+    justify-content: space-between;
+    order: 2;
+    height: 50%;
+}
+
+#four-finals-container-left {
+    position: relative;
+    left: -150px;
+}
+
+#four-finals-container-right {
+    position: relative;
+    right: -150px;
+}
+
+#eight-finals-container-left {
+    order: 1;
+    position: relative;
+    left: -190px;
+}
+
+#eight-finals-container-right {
+    order: 3;
+    position: relative;
+    right: -190px;
+}
+
+.eight-finals-grid-container {
+    
+    display: grid;
+    grid-template-columns: auto;
+    padding: 2px;
+    row-gap: 40px;
+}
+
+.eight-finals-item {
+    border: 0.5px solid #FFFAFA;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 2px;
+    font-family: sans-serif;
+    color:#D8BFD8;
+    background-color: #483D8B;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
+    
+}
+
+.four-finals-item {
+    border: 0.5px solid #FFFAFA;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 2px;
+    font-family: sans-serif;
+    color:#D8BFD8;
+    background-color: #483D8B;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+.four-finals-grid-container {  
+    display: grid;
+    grid-template-columns: auto;
+    padding: 2px;
+    row-gap: 40px;
+}
+
+.group-grid-item {
+    border: 0.5px solid #FFFAFA;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 2px;
+    font-family: sans-serif;
+    color:#D8BFD8;
+    background-color: #483D8B;
+}
+
+
+
