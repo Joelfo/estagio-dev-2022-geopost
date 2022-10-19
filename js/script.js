@@ -1,5 +1,5 @@
 import * as simulator from './functions.js';
-import {drawFinals, drawGroups} from './draw.js';
+import {drawFinals, drawGroups, drawFinal, drawWinner} from './draw.js';
 
 function sendResult(matchFinal){
     const url = 'https://estagio.geopostenergy.com/WorldCup/InsertFinalResult';
@@ -84,11 +84,52 @@ $.ajax(url, {
     console.log(winner);
 
     sendResult(matchFinal[0]);
-
-    drawGroups(groups);
-    drawFinals(matches8Finals, "eight");
-    drawFinals(matches4Finals, "four");
-    drawFinals(matchesSemiFinals, "semi");
+    const metrics = {
+        position: "-2000px",
+        padding: "2px",
+        rowGap: "40px",
+        margin: "30px",
+        width: "140px",
+    };
+    drawGroups(groups, groupMatches);
+    drawFinals(matches8Finals, "eight", metrics);
+    drawFinals(matches4Finals, "four", metrics);
+    drawFinals(matchesSemiFinals, "semi", metrics);
+    metrics.marginBottom = "60px";
+    drawFinal(matchFinal[0], metrics);
+    drawWinner(winner[0], metrics);
 });
+
+
+$(document).on("click", ".popup", function(){
+    const id = $(this).attr('id');
+    console.log(id);
+    const popupId = 'popup-' + id;
+    console.log(popupId);
+    let popup = document.getElementById(popupId);
+    popup.classList.toggle("show");
+})
+    
+$(document).on("click", ".modalButton", function(){
+    let id = $(this).attr('id');
+    id = 'modal-' + id;
+    console.log(id);
+    let modal = document.getElementById(id);
+    console.log(modal.style);
+    modal.style.display = "block";
+
+    let span = document.getElementsByClassName("close")[0];
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+})
+
 
 

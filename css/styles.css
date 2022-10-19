@@ -25,97 +25,132 @@ body{
     order: 3;
 }
 
-
-.eight-finals-container {
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    order: 2;
-}
-
-.four-finals-container {
-    display:flex;
-    justify-content: space-between;
-    order: 2;
-    height: 50%;
-}
-
-#four-finals-container-left {
-    position: relative;
-    left: -150px;
-}
-
-#four-finals-container-right {
-    position: relative;
-    right: -150px;
-}
-
-#eight-finals-container-left {
-    order: 1;
-    position: relative;
-    left: -190px;
-}
-
-#eight-finals-container-right {
-    order: 3;
-    position: relative;
-    right: -190px;
-}
-
-.eight-finals-grid-container {
-    
-    display: grid;
-    grid-template-columns: auto;
-    padding: 2px;
-    row-gap: 40px;
-}
-
-.eight-finals-item {
-    border: 0.5px solid #FFFAFA;
-    border-radius: 5px;
-    font-size: 20px;
-    padding: 2px;
-    font-family: sans-serif;
-    color:#D8BFD8;
-    background-color: #483D8B;
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
-   
-    
-}
-
-.four-finals-item {
-    border: 0.5px solid #FFFAFA;
-    border-radius: 5px;
-    font-size: 20px;
-    padding: 2px;
-    font-family: sans-serif;
-    color:#D8BFD8;
-    background-color: #483D8B;
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;
-}
-
-.four-finals-grid-container {  
-    display: grid;
-    grid-template-columns: auto;
-    padding: 2px;
-    row-gap: 40px;
-}
-
 .group-grid-item {
     border: 0.5px solid #FFFAFA;
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 16px;
     padding: 2px;
     font-family: sans-serif;
     color:#D8BFD8;
     background-color: #483D8B;
 }
 
+#semi-finals-container-left{
+    margin-right: 10px;
+}
 
+#semi-finals-container-right{
+    margin-left: 10px;
+}
 
+/* Popup container */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  /* The actual popup (appears on top) */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+    font-size: 16px;
+  }
+  
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 25%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+
+.finals-item {
+        border: 0.5px solid #FFFAFA;
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 2px;
+        font-family: sans-serif;
+        color:#D8BFD8;
+        background-color: #483D8B;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width : 150px;
+}
+
+.final-item {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;      
+}
+
+#winner-container {
+    grid-column: 1 / 3;
+    width: auto;
+}
+
+/* Modal by W3Schools (https://www.w3schools.com/howto/howto_css_modals.asp) */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+.modalButton {
+    cursor: pointer;
+}
