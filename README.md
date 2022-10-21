@@ -12,6 +12,7 @@ O projeto foi realizado utilizando:
 Alguns trechos de código foram retirados de fontes abertas como W3Schools e Stack Overflow, esses trechos específicos foram referenciados e contém o link para suas fontes com o auxilio de comentários.
 
 ### Estrutura
+#### Divisão
 O projeto foi dividido conforme a seguinte estrutura
 - css
     - styles.css
@@ -23,7 +24,7 @@ O projeto foi dividido conforme a seguinte estrutura
     - script.js
 - index.html
 
-Especificando:
+#### Especificando
 
 - **styles.css**: Contém a maior parte da estilização CSS utilizada.
 
