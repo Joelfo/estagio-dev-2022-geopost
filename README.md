@@ -23,16 +23,18 @@ O projeto foi dividido conforme a seguinte estrutura
     - script.js
 - index.html
 
-styles.css: Contém a maior parte da estilização CSS utilizada.
+Especificando:
 
-draw.js: Funções utilizadas para preencher dinamicamente o html com alguns dos times e grupos e representá-los na tela.
+- **styles.css**: Contém a maior parte da estilização CSS utilizada.
 
-compare.js: Funções de comparação utilizadas para apoiar a definição de partidas e classificação de equipes.
+- **draw.js**: Funções utilizadas para preencher dinamicamente o html com alguns dos times e grupos e representá-los na tela.
 
-functions.js: Funções importantes referentes a lógica de simulação da competição.
+- **compare.js**: Funções de comparação utilizadas para apoiar a definição de partidas e classificação de equipes.
 
-jquery-3.6.1.js: Biblioteca jquery.
+- **functions.js**: Funções importantes referentes a lógica de simulação da competição.
 
-script.js: O corpo de scripts principal responsável por se comunicar com a API da geopost, coordenar a simulação da competição e enviar a resposta solicitada, contendo os dados da final, para a API.
+- **jquery-3.6.1.js**: Biblioteca jquery.
 
-index.html: Página principal contendo os elementos visuais da simulação.
+- **script.js**: O corpo de scripts principal responsável por se comunicar com a API da geopost, coordenar a simulação da competição e enviar a resposta solicitada, contendo os dados da final, para a API.
+
+- **index.html**: Página principal contendo os elementos visuais da simulação.
