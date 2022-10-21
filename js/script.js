@@ -112,16 +112,22 @@ $(document).on("click", ".popup", function(){
     
 $(document).on("click", ".modalButton", function(){
     let id = $(this).attr('id');
-    id = 'modal-' + id;
-    console.log(id);
-    let modal = document.getElementById(id);
-    console.log(modal.style);
+    let modalId = 'modal-' + id;
+    let modal = document.getElementById(modalId);
+    //console.log(modal.style);
     modal.style.display = "block";
+    //console.log(modal.style);
 
-    let span = document.getElementsByClassName("close")[0];
+    let spanId = "close-" + modalId;
+    //console.log(spanId);
+    let span = document.getElementById(spanId);
+    //console.log(span.attributes)
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
+        //console.log(modal.style);
         modal.style.display = "none";
+        console.log(modal.style.display);
+        setTimeout(() => {console.log(modal.style.display);})
     }
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {

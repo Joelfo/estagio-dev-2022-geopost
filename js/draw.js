@@ -7,9 +7,19 @@ function drawGroups(groups, groupMatches){
         for(let j = 0; j < groups[i].length ; j++){
             $(`#group-grid-item-${i} .group-text`).append(`<div class="group-grid-item-text"> ${groups[i][j].info.Name} </div>`);
         }
-        $(`#group-grid-item-${i}`).append(`<div id="modal-group-grid-item-${i}" class="modal"> <div class="modal-content" id="modal-content-group-${i}"> <span class="close">&times;</span> </div> </div>`);
+
+        $(`#group-container-1`).append(`<div id="modal-group-grid-item-${i}" class="modal"> <div class="modal-content" id="modal-content-group-${i}"> <span class="close" id="close-modal-group-grid-item-${i}">&times;</span> </div> </div>`);
+        
+        $(`#modal-content-group-${i}`).append(`<div id="group-${i}-teams-detail-container" class="modal-group-item-container"> </div>`);
+        $(`#group-${i}-teams-detail-container`).append(`<h1 class="group-teams-detail-title"> Seleções </h1>`)
+        for(let j = 0; j < groups[i].length ; j++){
+            $(`#group-${i}-teams-detail-container`).append(`<div class="modal-group-item group-grid-item"> ${groups[i][j].info.Name} - ${groups[i][j].points} Pontos - Saldo de Gols(${groups[i][j].goalsScore})</div>`);
+        }
+
+        $(`#modal-content-group-${i}`).append(`<div id="group-${i}-matches-container" class="modal-group-item-container"> </div>`);
+        $(`#group-${i}-matches-container`).append('<h1 class="group-matches-title"> Partidas </h1>');
         for(let j = 0; j < groupMatches[i].length; j++){
-            $(`#modal-content-group-${i}`).append(`<div class="group-match group-grid-item"> ${groupMatches[i][j].team1.info.Name}  ${groupMatches[i][j].team1.info.Name} </div>`);
+            $(`#group-${i}-matches-container`).append(`<div class="modal-group-item group-grid-item"> ${groupMatches[i][j].team1.info.info.Name}(${groupMatches[i][j].team1.goals}) X (${groupMatches[i][j].team2.goals})${groupMatches[i][j].team2.info.info.Name} </div>`);
         }
     
     }
@@ -23,9 +33,18 @@ function drawGroups(groups, groupMatches){
             $(`#group-grid-item-${i}`).append(`<div class="group-grid-item-text"> ${groups[i][j].info.Name} </div>`);
         }
 
-        $(`#group-grid-item-${i}`).append(`<div id="modal-group-grid-item-${i}" class="modal"> <div class="modal-content" id="modal-content-group-${i}"> <span class="close">&times;</span> </div> </div>`);
+        $(`#group-container-2`).append(`<div id="modal-group-grid-item-${i}" class="modal"> <div class="modal-content" id="modal-content-group-${i}"> <span class="close" id="close-modal-group-grid-item-${i}">&times;</span> </div> </div>`);
+        
+        $(`#modal-content-group-${i}`).append(`<div id="group-${i}-teams-detail-container" class="modal-group-item-container"> </div>`);
+        $(`#group-${i}-teams-detail-container`).append('<h1 class="group-teams-detail-title"> Seleções </h1>')
+        for(let j = 0; j < groups[i].length ; j++){
+            $(`#group-${i}-teams-detail-container`).append(`<div class="group-team group-grid-item"> ${groups[i][j].info.Name} - ${groups[i][j].points} Pontos - Saldo de Gols(${groups[i][j].goalsScore})</div>`);
+        }
+
+        $(`#modal-content-group-${i}`).append(`<div id="group-${i}-matches-container" class="modal-group-item-container"> </div>`);
+        $(`#group-${i}-matches-container`).append('<h1 class="group-matches-title"> Partidas </h1>');
         for(let j = 0; j < groupMatches[i].length; j++){
-            $(`#modal-content-group-${i}`).append(`<div class="group-match group-grid-item"> ${groupMatches[i][j].team1.info.Name}  ${groupMatches[i][j].team1.info.Name} </div>`);
+            $(`#group-${i}-matches-container`).append(`<div class="group-match group-grid-item"> ${groupMatches[i][j].team1.info.info.Name}(${groupMatches[i][j].team1.goals}) X (${groupMatches[i][j].team2.goals})${groupMatches[i][j].team2.info.info.Name} </div>`);
         }
     }
 
@@ -37,13 +56,16 @@ function drawFinals(matches, finalType, metrics){
         $(`#${finalType}-finals-container-left`).append(`<div class="${finalType}-finals-item finals-item popup" id="${finalType}-finals-item-${i}"> <span class="popuptext" id="popup-${finalType}-finals-item-${i}">Resultado: ${matches[i].team1.info.info.Name}(${matches[i].team1.goals}) X (${matches[i].team2.goals})${matches[i].team2.info.info.Name}</span> </div>`);
         
         $(`#${finalType}-finals-item-${i}`).append(`<div class="${finalType}-finals-text"> ${matches[i].team1.info.info.Name} </div>`);
+        $(`#${finalType}-finals-item-${i}`).append('X');
         $(`#${finalType}-finals-item-${i}`).append(`<div class="${finalType}-finals-text"> ${matches[i].team2.info.info.Name} </div>`)
     }
 
     $(`.${finalType}-finals-container`).append(`<div class="${finalType}-finals-grid-container" id="${finalType}-finals-container-right" > </div>`);
     for(let i = matches.length - 1; i >= matches.length / 2; i--){
         $(`#${finalType}-finals-container-right`).append(`<div class="${finalType}-finals-item finals-item popup" id="${finalType}-finals-item-${i}"> <span class="popuptext" id="popup-${finalType}-finals-item-${i}">Resultado: ${matches[i].team1.info.info.Name}(${matches[i].team1.goals}) X (${matches[i].team2.goals})${matches[i].team2.info.info.Name}</span>  </div>`);
+        
         $(`#${finalType}-finals-item-${i}`).append(`<div class="${finalType}-finals-text"> ${matches[i].team1.info.info.Name} </div>`);
+        $(`#${finalType}-finals-item-${i}`).append('X');
         $(`#${finalType}-finals-item-${i}`).append(`<div class="${finalType}-finals-text"> ${matches[i].team2.info.info.Name} </div>`);
     }
 
@@ -103,8 +125,9 @@ function drawFinal(match, metrics){
 }
 
 function drawWinner(winner, metrics){
-    $('.final-container').prepend(`<div class="winner-container finals-item final-item popup" id="winner-container"> ${winner.info.Name} </div>`)
-
+    $('.final-container').prepend(`<div class=" finals-item final-item popup" id="winner-container"> ${winner.info.Name} </div>`)
+    $('.winner-container').prepend('<h2> Campeão </h2>');
+    $('.winner-container').prepend('<h2> Campeão </h2>');
     
 }
 
